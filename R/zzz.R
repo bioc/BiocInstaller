@@ -6,7 +6,7 @@ NEXT_R_DEVEL_VERSION <- "2.15.0" # next (not-yet-supported) version of R
 ## Change when the status of MBNI changes. 
 ## Make sure this change is propagated to users, even 
 ## if builds have stopped for a particular version of BioC.
-includeMBNI <- TRUE
+includeMBNI <- FALSE
 mbniUrl <- "http://brainarray.mbni.med.umich.edu/bioc"
 
 .onAttach <-
