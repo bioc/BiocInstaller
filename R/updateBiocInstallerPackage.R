@@ -91,7 +91,16 @@ updateBioconductorPackage <-
         .warning("'BiocInstaller' update failed, using version %s",
                  vers, call.=FALSE)
     if ("BiocUpgrade" %in% args$pkgs) {
-        .biocUpgrade()
+        if (!IS_UPGRADEABLE) {
+            .warning("%s is the latest version of Bioconductor for this version of R;
+                      installed packages upgraded",
+                     sQuote(BIOC_VERSION))
+            pkgs <- pkgs[!pkgs %in% "BiocUpgrade"]
+            biocLiteInstall(pkgs, ask=ask, siteRepos=siteRepos,
+                            suppressUpdates=suppressUpdates, ...)
+        } else  {
+            .biocUpgrade()
+        }
     } else {
         do.call(biocLiteInstall, args)
     }
