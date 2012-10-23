@@ -11,7 +11,8 @@ NEXT_R_DEVEL_VERSION <- "2.17.0" # next (not-yet-supported) version of R
 includeMBNI <- TRUE
 mbniUrl <- "http://brainarray.mbni.med.umich.edu/bioc"
 
-globalVariables("contribUrl")           # used in 'bootstrap' functions
+if (exists("globalVariables", where="package:utils"))
+  globalVariables("contribUrl")           # used in 'bootstrap' functions
 
 IS_USER <- IS_UPGRADEABLE <- IS_DOWNGRADEABLE <- UPGRADE_VERSION <-
     DOWNGRADE_VERSION <- NULL
