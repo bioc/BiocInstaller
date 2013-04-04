@@ -1,6 +1,6 @@
 test_useDevel <- function()
 {
-    if (!BiocInstaller:::IS_END_OF_LIFE) {
+    if (BiocInstaller:::IS_END_OF_LIFE) {
         checkException(useDevel(), silent=TRUE)
     } else if (!BiocInstaller:::IS_DOWNGRADEABLE) {
         checkException(useDevel(FALSE), silent=TRUE)
