@@ -5,7 +5,7 @@
     sprintf("'%s'", as.character(x))
 
 .msg <-
-    function(fmt, ..., width=getOption("width"))
+    function(fmt, ..., width=getOption("width") * .9)
     ## Use this helper to format all error / warning / message text
 {
     txt <- strwrap(sprintf(fmt, ...), width=width, exdent=2)
