@@ -1,7 +1,7 @@
 ## The following values are updated with each Bioc release; see .onLoad
 BIOC_VERSION <- package_version("3.0")    # Bioc version for this package
 R_VERSION <- package_version("3.1.0")      # R version for this package
-IS_USER <- FALSE                           # TRUE if this version of
+IS_USER <- TRUE                            # TRUE if this version of
                                            # Bioconductor is the
                                            # current release version
 IS_END_OF_LIFE <- FALSE                    # TRUE if this version of
