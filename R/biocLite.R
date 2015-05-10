@@ -49,7 +49,7 @@
 
 .biocLiteInstall <-
     function(pkgs, repos, ask, suppressUpdates, siteRepos=character(),
-             lib.loc=.libPaths(), lib=.libPaths()[1], ...)
+             lib.loc=NULL, lib=.libPaths()[1], ...)
 {
     if (!missing(repos))
         .stop("'repos' argument to 'biocLite' not allowed")
@@ -81,7 +81,7 @@
     ## early exit if suppressUpdates
     if (is.logical(suppressUpdates) && suppressUpdates)
         return(invisible(pkgs))
-    pkgsToUpdate <- old.packages(lib.loc=lib.loc)
+    pkgsToUpdate <- old.packages(lib.loc)
     if (is.null(pkgsToUpdate))
         return(invisible(pkgs))
 
@@ -94,7 +94,7 @@
     oldPkgs <- pkgsToUpdate
     if (nrow(oldPkgs)) {
         pkgList <- paste(oldPkgs[,"Package"], collapse="', '")
-        if (ask==TRUE) {
+        if (ask) {
             .message("Old packages: '%s'", pkgList)
 
             answer <-
@@ -102,12 +102,12 @@
                            allowed = c("a", "A", "s", "S", "n", "N"))
 
             switch(answer,
-                   a = update.packages(oldPkgs=oldPkgs, ask=FALSE),
-                   s = update.packages(oldPkgs=oldPkgs, ask=TRUE),
+                   a = update.packages(lib.loc, oldPkgs=oldPkgs, ask=FALSE),
+                   s = update.packages(lib.loc, oldPkgs=oldPkgs, ask=TRUE),
                    n = invisible(pkgs))   
         } else {
             .message("Updating packages '%s'", pkgList)
-            update.packages(oldPkgs=oldPkgs, ask=ask)
+            update.packages(lib.loc, oldPkgs=oldPkgs, ask=ask)
         }
     }
 
