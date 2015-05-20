@@ -46,7 +46,7 @@ globalVariables("contribUrl")           # used in 'bootstrap' functions
     .message("Bioconductor version %s (BiocInstaller %s), ?biocLite for help",
              biocVersion(), packageVersion("BiocInstaller"))
     if (Rversion > R_VERSION_MAX)
-        .warning("BiocInstaller version %s is too old for R version %s;
+        .message("BiocInstaller version %s is too old for R version %s;
                   remove.packages(\"BiocInstaller\") then
                   source(\"http://bioconductor.org/biocLite.R\")",
                  BIOC_VERSION, Rversion)
