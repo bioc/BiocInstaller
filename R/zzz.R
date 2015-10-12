@@ -2,10 +2,10 @@
 BIOC_VERSION <- package_version("3.1")     # Bioc version for this package
 R_VERSION_MAX <- package_version("3.3.0")  # Maximum version of R for
                                            # this version of BiocInstaller
-IS_USER <- TRUE                            # TRUE if this version of
+IS_USER <- FALSE                           # TRUE if this version of
                                            # Bioconductor is the
                                            # current release version
-IS_END_OF_LIFE <- FALSE                    # TRUE if this version of
+IS_END_OF_LIFE <- TRUE                     # TRUE if this version of
                                            # Bioconductor is no longer
                                            # the release version
 
@@ -14,7 +14,7 @@ IS_UPGRADEABLE <- TRUE                     # TRUE if a more recent
                                            # devel) of Bioconductor is
                                            # available for this
                                            # version of R
-UPGRADE_IS_DEVEL <- TRUE                   # TRUE if UPGRADE_VERSION
+UPGRADE_IS_DEVEL <- FALSE                  # TRUE if UPGRADE_VERSION
                                            # is for devel use only
 IS_DOWNGRADEABLE <- FALSE                  # TRUE if an older version
                                            # (release or devel) of
